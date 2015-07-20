@@ -1,0 +1,33 @@
+{
+    "#": "Comment are field with key #",
+    "#": "All predefined symbols are prefixed by #",
+    "#": "You can use $ to do a string subsitution. You may end it with an optional trailing $.",
+
+
+    "#command": [
+        "mysql", "-u", "$user", "-h", "$host", "-e", "$argv", "-P", "$port", "$database"
+    ],
+    "#env": {
+        "MYSQL_PWD": "$password"
+    },
+    "#default": {
+        "#heading": "################################################## Server: $#name ##################################################",
+        "port": "3306"
+    },
+    "#config": [
+        {
+            "#name": "DEV",
+            "host": "10.0.1.4",
+            "user": "some_user",
+            "password": "some_password",
+            "database": "some_database"
+        },
+        {
+            "#name": "UAT",
+            "host": "10.0.1.5",
+            "user": "some_user_2",
+            "password": "some_password_2",
+            "database": "some_database_2"
+        }
+    ]
+}
