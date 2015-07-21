@@ -103,7 +103,9 @@ def main(config, argv):
         print
 
 
-def display_group():    
+def display_group(config):
+    configs = [config]
+
     all_files = os.listdir(OUT_DIR)
 
     equals = []
@@ -119,11 +121,12 @@ def display_group():
         else:
             eq.append(f)
 
-    print colored('%s Analysis %s'% ('#' * 50, '#' * 50), 'blue')
-    for i, group in enumerate(equals):
-        print "Group %d: %s" % (i + 1, ',  '.join(map(lambda x: colored(x, 'green'), group)))
-
-
+    print colored(replace_config(configs, '$#analyzer.#heading'), 'blue')
+    if equals:
+        for i, group in enumerate(equals):
+            print "Group %d: %s" % (i + 1, ',  '.join(map(lambda x: colored(x, 'green'), group)))
+    else:
+        print "<Empty>"
 
 
 def parse_args():
@@ -142,7 +145,7 @@ def parse_args():
 
         make_out_dir()
         main(config, argv)
-        display_group()
+        display_group(config)
 
 
 if __name__ == "__main__":
