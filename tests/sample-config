@@ -1,11 +1,13 @@
 {
-    "#": "Comment are field with key #",
+    "#": "Comment are fields with key #",
     "#": "All predefined symbols are prefixed by #",
     "#": "You can use $ to do a string subsitution. You may end it with an optional trailing $.",
 
+    "#": "You can run the command with `./run.py tests/sample-config 'select 1;'`",
+    "#": "or `cat some_command_file | ./run.py tests/sample-config`",
 
     "#command": [
-        "mysql", "-u", "$user", "-h", "$host", "-e", "$argv", "-P", "$port", "$database"
+        "mysql", "-u", "$user", "-h", "$host", "-e", "$#argv", "-P", "$port", "$database"
     ],
     "#env": {
         "MYSQL_PWD": "$password"

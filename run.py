@@ -79,7 +79,7 @@ def replace_config(configs, be_replaced):
 
 def main(config, argv):
     default_config = config['#default']
-    default_config['argv'] = argv
+    default_config['#argv'] = argv
 
     raw_command = config['#command']
     raw_env = config['#env']
